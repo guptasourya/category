@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "category")
-@SQLDelete(sql = "UPDATE category SET deleted=true WHERE category_id=?")
+//@SQLDelete(sql = "UPDATE category SET deleted=true WHERE category_id=?")
 @Where(clause = "deleted=false")
 public class Category {
 
@@ -78,6 +78,10 @@ public class Category {
 	public void setParent(Category parent) {
 		this.parent = parent;
 	}
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", deleted=" + deleted + ", parent=" + parent + "]";
+	}
 
 //	public Set<Category> getChildren() {
 //		return children;
@@ -86,10 +90,11 @@ public class Category {
 //	public void setChildren(Set<Category> children) {
 //		this.children = children;
 //	}
-	@Override
-	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", parent=" + parent +  "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Category [id=" + id + ", name=" + name + ", parent=" + parent +  "]";
+//	}
+	
 
 	
 

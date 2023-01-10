@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.it.main.entities.Category;
@@ -54,11 +53,20 @@ public class CategoryController {
 		 return updateCategory;
 	
 	}
-	@DeleteMapping("/{id}")
-	  public Category deleteCategory(@PathVariable int id) {
-		  Category deleteCategory = this.Cservice.deleteCategory(id);
-		  return deleteCategory;
-	  }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    @DeleteMapping("/{name}")
+	public Category deletedCategory(@PathVariable String name) {
+		
+		this.Cservice.deleteCategory(name);
+		return null;
+	}
+	
+//	@DeleteMapping("/{id}")
+//	  public Category deleteCategory(@PathVariable int id) {
+//	
+//		  Category deleteCategory = this.Cservice.deleteCategory(id);
+//		  return deleteCategory;
+//	  }  
+	
 	
 	//Find By name
 	@GetMapping("/{name}")
